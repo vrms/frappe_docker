@@ -142,6 +142,20 @@ docker-compose \
 Make sure to replace `<project-name>` with any desired name you wish to set for the project.
 Note: use `docker-compose-frappe.yml` in case you need only Frappe without ERPNext.
 
+To stop/restart/list, etc. the complete stack of containers created you need to use the entire `docker-compose` command including all flags and replace the actual command at the end with what you want `docker-compose` to do.
+
+for example ...
+
+```sh
+docker-compose \
+    --project-name <project-name> \
+    -f installation/docker-compose-common.yml \
+    -f installation/docker-compose-erpnext.yml \
+    -f installation/docker-compose-networks.yml \
+    --project-directory installation stop
+```
+... will stop the entire stack.
+
 ### Docker containers
 
 This repository contains the following docker-compose files, each one containing the described images:
